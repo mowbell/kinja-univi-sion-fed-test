@@ -29,7 +29,7 @@ export default class App extends React.Component<AppProps, AppState> {
     render() {
         return <main className="app">
             <SearchBox/>
-            <Slider/>
+            <Slider photos={this.state.photos}/>
             <RelatedPhotos/>
         </main>;
     }
