@@ -1,0 +1,25 @@
+.search-box {
+  position: absolute;
+  top: 5%;
+  width: 90%;
+  left: 5%;
+  z-index: 20;
+
+  .search-box-input {
+    width: 100%;
+    border: none;
+    background: none;
+    font-size: 2em;
+    font-family: inherit;
+    height: 3em;
+    user-select: none;
+    outline: none;
+    padding: 0.25em;
+    text-align: center;
+
+    &:focus {
+      border-bottom: 2px solid white;
+      background-color: rgba($color: white, $alpha: 0.5);
+    }
+  }
+}

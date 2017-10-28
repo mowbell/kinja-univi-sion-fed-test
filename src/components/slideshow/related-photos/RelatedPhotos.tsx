@@ -8,11 +8,6 @@ export interface RelatedPhotosProps {
 export class RelatedPhotos extends React.Component<RelatedPhotosProps, undefined> {
     render() {
         return <section className="related-photos">
-            <h1>Related Photos</h1>
-            <RelatedPhoto/>
-            <RelatedPhoto/>
-            <RelatedPhoto/>
-            <RelatedPhoto/>
             <RelatedPhoto/>
             <RelatedPhoto/>
             <RelatedPhoto/>
