@@ -69,7 +69,9 @@
     "webpack-dev-server": "^2.9.3",
     "webpack-merge": "^4.1.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "normalize.css": "^7.0.0"
+  },
   "jest": {
     "moduleFileExtensions": [
       "ts",
