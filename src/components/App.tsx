@@ -12,11 +12,13 @@ export interface AppProps {
 
 export interface AppState {
     photos: Array<FlickrPhoto>;
+    current: number;
+    relatedPhotos: Array<FlickrPhoto>;
 }
 
 export default class App extends React.Component<AppProps, AppState> {
     componentWillMount() {
-        this.setState({ photos: [] });
+        this.setState({ photos: [], current: 0, relatedPhotos: [] });
         this.fetchPhotos();
     }
 
@@ -26,11 +28,15 @@ export default class App extends React.Component<AppProps, AppState> {
             this.setState({ photos });
         });
     }
+
+    updateCurrentIndex(index: number) {
+        this.setState({current: index});
+    }
     render() {
         return <main className="app">
             <SearchBox/>
-            <Slider photos={this.state.photos}/>
-            <RelatedPhotos/>
+            <Slider photos={this.state.photos} current={this.state.current} onSlideChange={this.updateCurrentIndex.bind(this)}/>
+            <RelatedPhotos photos={this.state.photos} current={this.state.current} onPhotoClick={this.updateCurrentIndex.bind(this)}/>
         </main>;
     }
 }
