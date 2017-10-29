@@ -11,7 +11,7 @@ export interface RelatedPhotosProps {
 }
 
 export class RelatedPhotos extends React.Component<RelatedPhotosProps, undefined> {
-    static MAX_ITEMS: number = 6;
+    static MAX_ITEMS: number = 5;
     getPhotos(): RelatedPhoto[] {
         let photos = [];
         const {photos: allPhotos, current: currentIndex} = this.props;
@@ -26,6 +26,11 @@ export class RelatedPhotos extends React.Component<RelatedPhotosProps, undefined
                 index = nextIndex;
             }
             while (photoCount < RelatedPhotos.MAX_ITEMS);
+
+            const hasPrevious = (currentIndex > 0);
+            const previousIndex = hasPrevious ? (currentIndex - 1) :  (allPhotos.length - 1);
+            const previousPhoto = allPhotos[previousIndex];
+            photos.push(<RelatedPhoto photo={previousPhoto} index={previousIndex} onClick={this.onPhotoClick.bind(this)}/>);
         }
         return photos;
     }
