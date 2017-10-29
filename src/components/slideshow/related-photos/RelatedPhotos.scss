@@ -1,0 +1,42 @@
+$small-devices-size: 480px;
+$medium-devices-size: 768px;
+
+.related-photos {
+  position: absolute;
+  top: 75%;
+  left: 0;
+  height: 25%;
+  right: 0;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  overflow: hidden;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  box-sizing: border-box;
+  flex-flow: column wrap;
+
+  .related-photo {
+    position: relative;
+    width: 21%;
+    height: 100%;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: transparent;
+    background-image: url(http://farm5.static.flickr.com/4496/24092350328_de532e9394_q.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+
+    @media screen and (max-width: $small-devices-size) {
+      width: 46%;
+      margin-right: 2%;
+    }
+
+    @media screen and (min-width: $small-devices-size) and (max-width: $medium-devices-size) {
+      width: 28%;
+      margin-right: 4%;
+    }
+  }
+}

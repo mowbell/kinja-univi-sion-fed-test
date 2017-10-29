@@ -1,0 +1,32 @@
+.search-box {
+  position: absolute;
+  top: 5%;
+  width: 90%;
+  left: 5%;
+  z-index: 20;
+
+  .search-box-input {
+    width: 100%;
+    background: none;
+    font-size: 2em;
+    font-family: inherit;
+    color: white;
+    height: 3em;
+    user-select: none;
+    outline: none;
+    padding: 0.25em;
+    text-align: center;
+    background-color: rgba($color: black, $alpha: 0.5);
+    text-shadow: 1px 1px 1px darkgray;
+    border: 1px solid white;
+
+    &::placeholder {
+      color: white;
+      text-shadow: 1px 1px 1px rgb(156, 156, 156);
+    }
+
+    &:focus {
+      border-bottom: 8px solid white;
+    }
+  }
+}
