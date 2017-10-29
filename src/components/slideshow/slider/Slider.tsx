@@ -8,14 +8,16 @@ import FlickrUtils from "../../../utils/FlickrUtils";
 
 export interface SliderProps {
     photos: Array<FlickrPhoto>;
+    onSlideChange: Function;
+    current: number;
 }
 export interface SliderState {
     photos: Array<FlickrPhoto>;
     currentIndex: number;
-    size:number;
+    size: number;
 }
 export class Slider extends React.Component<SliderProps, SliderState> {
-    constructor(){
+    constructor() {
         super();
         this.goToPreviousSlide = this.goToPreviousSlide.bind(this);
         this.goToNextSlide = this.goToNextSlide.bind(this);
@@ -23,28 +25,31 @@ export class Slider extends React.Component<SliderProps, SliderState> {
     componentWillMount() {
         this.setState({
             photos: [],
-            currentIndex: 0,
+            currentIndex: this.props.current,
             size: 0
         });
     }
     componentWillReceiveProps(nextProps: SliderProps) {
         this.setState({
             photos: nextProps.photos,
-            size: nextProps.photos.length
+            size: nextProps.photos.length,
+            currentIndex: nextProps.current
         });
     }
-    getCurrentPhoto(): FlickrPhoto{
+    getCurrentPhoto(): FlickrPhoto {
         return this.state.photos[this.state.currentIndex];
     }
     goToPreviousSlide() {
-        this.setState({
-            currentIndex: this.getPreviousIndex()
-        });
+        this.moveToSlideIndex(this.getPreviousIndex());
     }
     goToNextSlide() {
+        this.moveToSlideIndex(this.getNextIndex());
+    }
+    moveToSlideIndex(index: number) {
         this.setState({
-            currentIndex: this.getNextIndex()
+            currentIndex: index
         });
+        this.props.onSlideChange(index);
     }
     getPreviousIndex(): number {
         const hasPrevious = (this.state.currentIndex > 0);
@@ -61,7 +66,7 @@ export class Slider extends React.Component<SliderProps, SliderState> {
         return this.preloadPhoto(this.getNextIndex());
     }
     preloadPhoto(index: number) {
-        if( !this.state.size)
+        if ( !this.state.size)
             return;
         const photo = this.state.photos[index];
         const photoUrl = FlickrUtils.buildPhotoURL(photo);
