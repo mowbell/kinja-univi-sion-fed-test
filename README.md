@@ -1,5 +1,6 @@
-# React Webpack Typescript Starter
-Minimal starter kit with hot module replacement (HMR) for rapid development.
+# Front End Test - Kinja - Univisión
+
+Based on React Webpack Typescript Starter:
 
 * **[React](https://facebook.github.io/react/)** (16.x)
 * **[Webpack](https://webpack.js.org/)** (3.x)
@@ -11,7 +12,7 @@ Minimal starter kit with hot module replacement (HMR) for rapid development.
 * Production build script
 * Image loading/minification using [Image Webpack Loader](https://github.com/tcoopman/image-webpack-loader)
 * Typescript compiling using [Awesome Typescript Loader](https://github.com/s-panferov/awesome-typescript-loader) (3.x)
-* Code quality (linting) for Typescript and SASS/CSS.
+* Code quality (linting) for Typescript and SASS/CSS [TSlint](https://palantir.github.io/tslint).
   
 ## Installation
 1. Clone/download repo
@@ -31,6 +32,10 @@ Minimal starter kit with hot module replacement (HMR) for rapid development.
 
 * Build app once (HMR disabled)
 * App served @ `http://localhost:3000`
+
+**Testing**
+
+`npm run test`
 
 ---
 
