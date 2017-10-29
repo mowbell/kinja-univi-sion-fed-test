@@ -7,7 +7,7 @@ export default class FlickrAPIService {
             return response.json();
         })
         .then((data) => {
-            return data.photos.photo;
+            return data.photos && data.photos.photo;
         });
     }
 }

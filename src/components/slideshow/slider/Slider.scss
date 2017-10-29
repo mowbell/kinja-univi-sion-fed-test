@@ -30,9 +30,10 @@
     top: 50%;
     z-index: 10;
     border-radius: $btn-size/2;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     transform: translate(0, -50%);
     background-position: center center;
+    border: solid 1px white;
 
     &.next {
       right: 5%;
